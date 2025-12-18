@@ -6,6 +6,8 @@ Currently available tutorials:
 
 * [Motif Finding Tutorial](/03-tutorials/02-motif-tutorial.md): Learn how to perform pattern recognition in graphs using network motif finding. This tutorial demonstrates the technique using the `stackexchange.com` knowledge graph, showing you how to identify and analyze recurring patterns and substructures within the graph data.
 
+* [Neo4j Integration Tutorial](/03-tutorials/03-neo4j-tutorial.md): Learn how to integrate GraphFrames with Neo4j graph database. This tutorial shows you how to load Stack Exchange data into Neo4j, ingest it into PySpark, create a GraphFrame, calculate PageRank, and store the results back in Neo4j. Perfect for combining Neo4j's interactive graph querying with GraphFrames' distributed graph algorithms.
+
 More tutorials will be added in future releases to cover additional GraphFrames features and use cases.
 
 ## Other Resources
