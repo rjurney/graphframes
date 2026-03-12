@@ -177,3 +177,28 @@ The project uses automated releases through GitHub Actions:
 - Scala artifacts published to Maven Central
 - Python packages published to PyPI
 - Documentation deployed to graphframes.io
+
+## Cursor Cloud specific instructions
+
+### Environment
+
+- **JDK 17** is required (installed at `/usr/lib/jvm/java-17-openjdk-amd64`). `JAVA_HOME` and `PATH` are set in `~/.bashrc`. JDK 21 (the system default) is **not** in the CI matrix; always use JDK 17.
+- **Poetry** (with `poetry-dynamic-versioning` and `poetry-plugin-export` plugins) is installed at `~/.local/bin`. `PATH` includes this in `~/.bashrc`.
+- **sbt** is bootstrapped via `build/sbt` — no global install needed. First run downloads the launcher JAR.
+
+### Scala (primary)
+
+Build, lint, and test commands are documented in the "Build and Development Commands" section above. The default Spark version is 3.5.7 (Scala 2.12). To build for Spark 4.x, pass `-Dspark.version=4.0.1` or `4.1.0` (uses Scala 2.13).
+
+### Python
+
+- Python deps are managed by Poetry in `/python`. Run `cd python && poetry install --with=dev` to install.
+- **Before running Python tests**, you must build the Scala JARs matching the installed PySpark version. Poetry installs PySpark 4.0.x by default, so run: `cd python && poetry run python dev/build_jar.py 4.0.1`
+- Python tests: `cd python && poetry run python -m pytest`
+- Python lint: `cd python && poetry run python -m black --check graphframes && poetry run python -m flake8 graphframes && poetry run python -m isort --check graphframes`
+
+### Gotchas
+
+- The Python test `conftest.py` locates JARs by PySpark major version and Scala version. If you build JARs for Spark 3.5.7 but Poetry installed PySpark 4.0.x, tests will fail with `ValueError: Failed to find graphframes jar`. Always build JARs matching the installed PySpark version.
+- sbt's first run for a new Spark version recompiles everything (~40s). Subsequent runs are fast (~2-8s) due to incremental compilation.
+- Tests are forked (`Test / fork := true`) and require up to 2GB heap (`-Xmx2048m`). Ensure the VM has sufficient memory.
