@@ -44,9 +44,8 @@ NEO4J_FORMAT = "org.neo4j.spark.DataSource"
 # without a shared label we would need a write per (source type, relationship, target type).
 SHARED_LABEL = "Node"
 
-# `load` runs outside spark-submit, so it puts these on its own SparkSession. That means it
-# needs a Spark 4.x PySpark install - the connector's 6.0.0 line dropped Spark 3.5 support -
-# regardless of which Spark version you point `neo4j.py`'s spark-submit at afterwards.
+# `load` runs outside spark-submit, so it puts these on its own SparkSession - requires a
+# Spark 4.x PySpark install.
 GRAPHFRAMES_PACKAGE = "io.graphframes:graphframes-spark4_2.13:0.12.1"
 NEO4J_PACKAGE = "org.neo4j.connectors:spark:6.0.0-s_2.13"
 

@@ -29,11 +29,7 @@ This installs `graphframes-py` along with dependencies needed for the tutorials:
 The Python package is a thin wrapper around the Scala/JVM implementation. If you install `graphframes-py` from PyPI, the JVM core is loaded automatically at runtime. Alternatively, you can use the `--packages` flag with `pyspark` or `spark-submit` to fetch the JVM core from Maven Central:
 
 ```bash
-# Spark 4.x with Scala 2.13
 pyspark --packages io.graphframes:graphframes-spark4_2.13:0.12.1
-
-# Spark 3.5.x with Scala 2.13
-pyspark --packages io.graphframes:graphframes-spark3_2.13:0.12.1
 ```
 
 ## Download the Stack Exchange Archive
@@ -86,8 +82,6 @@ spark-submit \
   --executor-memory 4g \
   python/graphframes/tutorials/stackexchange.py
 ```
-
-**Spark 3.5.x users**: Spark 3.5 does not include built-in XML support. Add the [spark-xml](https://github.com/databricks/spark-xml) package: `--packages com.databricks:spark-xml_2.13:0.18.0`. This package was merged into Spark 4.0 and is no longer needed for Spark 4.0+.
 
 The script:
 

@@ -1,14 +1,9 @@
 """Demonstrate GraphFrames network motif finding capabilities. Code from the Network Motif Finding Tutorial."""  # noqa: E501
 
 #
-# Spark 4.0+ (recommended):
+# Requires Spark 4.0+:
 #   Interactive: pyspark --packages io.graphframes:graphframes-spark4_2.13:0.12.1
 #   Batch:       spark-submit --packages io.graphframes:graphframes-spark4_2.13:0.12.1 \
-#                    python/graphframes/tutorials/motif.py
-#
-# Spark 3.5.x:
-#   Interactive: pyspark --packages io.graphframes:graphframes-spark3_2.13:0.11.0
-#   Batch:       spark-submit --packages io.graphframes:graphframes-spark3_2.13:0.11.0 \
 #                    python/graphframes/tutorials/motif.py
 #
 
