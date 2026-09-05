@@ -20,10 +20,6 @@ the environment:
 or as arguments, which take precedence over the environment:
 
     spark-submit --packages ... python/graphframes/tutorials/neo4j.py --password hunter2
-
-On Spark 3.5 use graphframes-spark3_2.12:0.12.1 and
-org.neo4j:neo4j-connector-apache-spark_2.12:5.4.3_for_spark_3 instead - the 6.0.0 line of the
-connector dropped Spark 3.5 support.
 """
 
 import argparse

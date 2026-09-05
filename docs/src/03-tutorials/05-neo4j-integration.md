@@ -189,8 +189,6 @@ Everything from here is `python/graphframes/tutorials/neo4j.py`. It needs both t
 spark-submit --packages io.graphframes:graphframes-spark4_2.13:0.12.1,org.neo4j.connectors:spark:6.0.0-s_2.13 python/graphframes/tutorials/neo4j.py
 ```
 
-On Spark 3.5, use `graphframes-spark3_2.12:0.12.1` and `org.neo4j:neo4j-connector-apache-spark_2.12:5.4.3_for_spark_3` instead — the connector's 6.0.0 line dropped Spark 3.5 support, and PySpark 3.5 ships Scala 2.12, not 2.13. Both coordinates must agree on the Spark major *and* Scala version, or you get a `NoClassDefFoundError` instead of a connection.
-
 The script opens with the same connection settings the loader used, and the same shared label:
 
 ```python
